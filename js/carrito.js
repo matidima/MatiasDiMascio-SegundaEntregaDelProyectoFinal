@@ -24,7 +24,8 @@ if (carrito.length == 0) {
         </article>
         `;        
     body.innerHTML += texto;    
-} else {
+} 
+else {
     const titulo = `
     <div class"carritoContainer">
         <h1 class="carritoH1">Carrito</h1>
@@ -37,6 +38,7 @@ if (carrito.length == 0) {
             <tr>
                 <th></th>
                 <th class="txtTabla">Productos</th>
+                <th class="txtTabla">Cantidad</th>
                 <th class="txtTabla">Precio</th>
             </tr>
         </thead>
@@ -59,15 +61,39 @@ if (carrito.length == 0) {
     const tbody = document.getElementById('tbody')
     for (let i = 0; i < carrito.length; i++) {
         const element = carrito[i];
-        const { id, auto, precio, img } = element;
-        const carrito = `
+        const { id, nombre, precio, img, cantidad } = element;
+        const cart = `
         <tr id=${id}>
-            <th><img class="trash" src="" alt="basura" srcset=""></th>
-            <th class="detallesTabla"><img class="imgAutoFav" src="${img}" alt="auto"><span class="nombreauto">${auto}</span></th>
+            <th><i class="fa-solid fa-trash btnEliminar"></i></th>
+            <th class="detallesTabla"><img class="imgProductoCarrito" src="../${img}" alt="${nombre}"><span class="nombreProducto">${nombre}</span></th>
             <th>${cantidad}</th>
-            <th>$${precio.toLocaleString()}</th>
+            <th>$${(cantidad * precio).toLocaleString()}</th>
         </tr>
         `;
-        tbody.innerHTML += carrito;
-        }
+        tbody.innerHTML += cart;
     }
+}
+
+
+/* const btnTerminar = document.getElementsByClassName("btnTerminar");
+const elemento = btnTerminar;
+elemento.addEventListener("click", terminarCompra);
+
+function terminarCompra() {
+    alert("Su compra se ha realizado correctamente. Muchas gracias.")
+}
+
+const btnEliminar = document.getElementsByClassName("btnEliminar");
+
+for (let i = 0; i < btnEliminar.length; i++) {
+    const element = btnEliminar[i];
+    element.addEventListener("click", EliminarDelCarrito);
+}
+    
+function ElimarDelCarrito(e) {
+    const btn = e.target;
+    const botonId = btn.getAttribute("id");
+    const productoEncontrado = productos.reduce(prod => prod.id == botonId);
+    const enCarrito = carrito.find(prod => prod.id == productoEncontrado.id);
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+} */

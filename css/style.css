@@ -497,7 +497,7 @@ header .navInferior .categoriasContainer {
 #carrito a {
   color: #5bab54;
 }
-#carrito .carritoTotal {
+/* #carrito .carritoTotal {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -509,8 +509,17 @@ header .navInferior .categoriasContainer {
 #carrito .carritoTotal span {
   font-size: 18px;
   color: #fff;
+} */
+#carrito .imgProductoCarrito {
+  width: 120px;
 }
-
+#carrito th {
+  padding: 20px 40px;
+  border: 2px solid #1b1b1b;
+}
+#carrito .btnTerminar {
+  margin: 10px;
+}
 /* MEDIA QUERIES */
 @media screen and (min-width: 768px) {
   #carrito {

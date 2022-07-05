@@ -105,5 +105,5 @@ function agregarAlCarrito(e) {
         let carritoFiltrado = carrito.filter(prod => prod.id != enCarrito.id);
       carrito = [...carritoFiltrado, {...enCarrito, cantidad: enCarrito.cantidad + 1}]
     }
-    console.log(carrito)
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 }
